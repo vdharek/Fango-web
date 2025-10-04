@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fango</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --fango: #7C6A4F;
+      --light-bg: #E7F6F2;
+      --dark-bg: #1E1E1E;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:var(--light-bg);
+      color:var(--fango);
+      font-family:'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      transition:background 0.3s ease,color 0.3s ease;
+    }
+
+    h1{
+      font-weight:800;
+      font-size:clamp(48px, 12vw, 140px);
+      line-height:0.9;
+      letter-spacing:0.02em;
+      text-transform:none;
+      margin:0;
+      padding:0 6vw;
+      text-align:center;
+    }
+
+    .theme-icon{
+      position:fixed;
+      top:20px;
+      right:20px;
+      background:none;
+      border:none;
+      cursor:pointer;
+      color:var(--fango);
+      font-size:28px;
+      transition:transform 0.3s ease;
+    }
+
+    .theme-icon:hover{
+      transform:rotate(20deg) scale(1.1);
+    }
+
+    .dark-mode{
+      background:var(--dark-bg);
+      color:var(--fango);
+    }
+
+    .dark-mode .theme-icon{
+      color:var(--fango);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
+  <h1>Fango</h1>
+
+  <script>
+    const toggleButton = document.getElementById('themeToggle');
+
+    function toggleTheme(){
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleButton.textContent = isDark ? '☀️' : '🌙';
+    }
+
+    toggleButton.addEventListener('click', toggleTheme);
+  </script>
+</body>
+</html>
