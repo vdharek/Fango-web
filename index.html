@@ -68,6 +68,24 @@
   <button class="theme-icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
   <h1>Fango</h1>
 
+  <!-- 
+    *** VERCEL SPEED INSIGHTS INTEGRATION ***
+    This script manually loads the Vercel Web Vitals/Speed Insights tracker for static HTML pages.
+    It must be placed before the closing </body> tag.
+  -->
+  <script>
+    // This check ensures the script only runs if a Vercel analytics ID is not already present, 
+    // which helps prevent issues in development or when Vercel injects it later.
+    if (window.location.hostname === "localhost" || !document.head.querySelector('[data-vercel-analytics]')) {
+        const script = document.createElement('script');
+        script.src = 'https://va.vercel-scripts.com/v1/script.js'; 
+        script.defer = true;
+        // The data-manual attribute is often required for custom embeds in static files
+        script.setAttribute('data-manual', 'true'); 
+        document.body.appendChild(script);
+    }
+  </script>
+
   <script>
     const toggleButton = document.getElementById('themeToggle');
 
